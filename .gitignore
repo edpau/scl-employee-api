@@ -34,3 +34,6 @@ logs/
 *.log
 *.pid
 *.seed
+
+# Build Server Protocol
+.bsp/
