@@ -1,0 +1,36 @@
+# === SBT / Scala ===
+target/
+project/target/
+project/project/
+lib_managed/
+src_managed/
+.idea/
+.cache/
+*.class
+*.log
+*.lock
+.DS_Store
+
+# === Metals / Bloop (Scala tooling) ===
+.metals/
+.bloop/
+
+# === IntelliJ ===
+*.iml
+*.ipr
+*.iws
+out/
+
+# === VSCode (optional) ===
+.vscode/
+.history/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Logs / Misc ===
+logs/
+*.log
+*.pid
+*.seed
