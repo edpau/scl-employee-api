@@ -1,5 +1,6 @@
 ## Initialized Backend Project
-[Start project with starter template](https://github.com/nology-tech/getting-started-guides/tree/main/play/starter-template)
+- [Start project with starter template](https://github.com/nology-tech/getting-started-guides/tree/main/play/starter-template)
+- 📘 Full writeup: [Starter Template – Folder & File Guide](./learning/starter-template-notes.md)
 
 ## Database Configuration
 - Renamed default playdb to scl_employee_db
@@ -27,3 +28,20 @@ curl for POST, PATCH, or DELETE
 - Cleaned up `.vscode/`, `.metals/`, and `.bloop/`
 - Updated `.gitignore` to reflect IntelliJ + Scala workflow
 - Ignoring unnecessary editor-specific and build artifacts
+
+## 🔐 Application Secret (Play Security)
+Instead of hardcoding secrets (like play.http.secret.key) directly in application.conf, I followed Play’s recommendation to inject secrets through environment variables.
+This improves:
+- Security (no secrets in Git)
+- Flexibility (per-env configs: dev vs prod)
+Example in application.conf:
+```hocon
+play.http.secret.key = "changeme"
+play.http.secret.key = ${?APPLICATION_SECRET}
+```
+Then in terminal:
+```bash
+APPLICATION_SECRET="mysupersecret" sbt run
+```
+📘 Full writeup: [Managing the Application Secret with Environment Variables](./learning/secrets-env-setup.md)
+
