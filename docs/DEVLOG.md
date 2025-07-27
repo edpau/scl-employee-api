@@ -45,3 +45,7 @@ APPLICATION_SECRET="mysupersecret" sbt run
 ```
 📘 Full writeup: [Managing the Application Secret with Environment Variables](./learning/secrets-env-setup.md)
 
+## Evolutions
+-- Evolution 1: Create `employees` table
+Summary: [Evolutions – What I Explored So Far](./learning/evolutions.md)
+
