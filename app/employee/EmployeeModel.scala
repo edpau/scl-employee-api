@@ -3,7 +3,7 @@ package employee
 import java.time.LocalDateTime
 
 case class Employee(
-  id: Option[Long] = None,
+  id: Option[Int] = None,
   firstName: String,
   lastName: String,
   email: String,
