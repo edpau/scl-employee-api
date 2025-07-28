@@ -49,3 +49,9 @@ APPLICATION_SECRET="mysupersecret" sbt run
 -- Evolution 1: Create `employees` table
 Summary: [Evolutions – What I Explored So Far](./learning/evolutions.md)
 
+## Create Employee Model + EmployeeTable.scala
+
+- [Why Use `Option[LocalDateTime] = None` Instead of `Timestamp` in Scala Domain Models](./learning/why-localdatetime-over-timestamp.md)
+- [Understanding the Three `Option[...] = None` Fields in Domain Model](./learning/option-fields-explained.md)
+
+## 
