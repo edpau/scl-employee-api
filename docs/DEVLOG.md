@@ -49,9 +49,26 @@ APPLICATION_SECRET="mysupersecret" sbt run
 -- Evolution 1: Create `employees` table
 Summary: [Evolutions – What I Explored So Far](./learning/evolutions.md)
 
-## Create Employee Model + EmployeeTable.scala
+## Create Employee Model
+
+- [What Is Employee.scala (Domain Model)](./learning/what-is-employee-model.md)
 
 - [Why Use `Option[LocalDateTime] = None` Instead of `Timestamp` in Scala Domain Models](./learning/why-localdatetime-over-timestamp.md)
 - [Understanding the Three `Option[...] = None` Fields in Domain Model](./learning/option-fields-explained.md)
 
-## 
+## Create EmployeeTable (Slick Table)
+- [What Is `EmployeeTable.scala` (Slick Table Mapping)](./learning/what-is-employee-table.md)
+
+- <> is a Slick method called <> (named with angle brackets))
+  - It stands for: "Map between a tuple and a case class — both ways"
+  - <> (Employee.tupled, Employee.unapply)
+  - "Here's how to turn tuples into Employee, and how to turn Employee back into tuples."
+- Rep[...] stands for: "Representation" of a database value
+  - def firstName: Rep[String] = column[String]("first_name")
+  - “This is not just a String in Scala — it’s a reference to a DB column that contains strings.”
+
+### Docs
+- [Slick - Schemas](https://scala-slick.org/doc/3.3.3/schemas.html)
+- [ProvenShape docs in Slick](https://scala-slick.org/doc/3.3.3/api/index.html#slick.lifted.ProvenShape@mapTo%5BU%5D:slick.lifted.MappedProjection%5BU,T%5D)
+- [Slick - Getting Started](https://scala-slick.org/doc/prerelease/gettingstarted.html?utm_source=chatgpt.com)
+- [Slick - MySQLProfile.api](https://scala-slick.org/doc/3.5.0-M4/api/slick/jdbc/MySQLProfile.html?utm_source=chatgpt.com)
