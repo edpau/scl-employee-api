@@ -1,5 +1,7 @@
 package employee
 
+import play.api.libs.json.{Json, OFormat}
+
 import java.time.LocalDateTime
 
 case class Employee(
@@ -14,4 +16,8 @@ case class Employee(
   updatedAt: Option[LocalDateTime] = None
 ) {
   def fullName: String = s"$firstName $lastName"
+}
+
+object Employee {
+  implicit val format: OFormat[Employee] = Json.format[Employee]
 }
