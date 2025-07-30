@@ -26,7 +26,7 @@ object EmployeeResponse {
   implicit val format: OFormat[EmployeeResponse] = Json.format[EmployeeResponse]
 
   def fromModel(model: Employee): EmployeeResponse = {
-    EmployeeResponse(id = model.id.getOrElse(0), firstName = model.firstName, lastName = model.lastName, email = model.email, mobileNumber = model.mobileNumber, address = model.address, createdAt = model.createdAt.map(_.toLocalDateTime), updatedAt = model.updatedAt.map(_.toLocalDateTime)
+    EmployeeResponse(id = model.id.getOrElse(0), firstName = model.firstName, lastName = model.lastName, email = model.email, mobileNumber = model.mobileNumber, address = model.address, createdAt = model.createdAt.map(_.toLocalDateTime), updatedAt = model.updatedAt.map(_.toLocalDateTime))
   }
 }
 
