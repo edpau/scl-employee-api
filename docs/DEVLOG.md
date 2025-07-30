@@ -138,6 +138,8 @@ object Employee {
 
 ## Create EmployeeDtos
 - [What Is `EmployeeDTO.scala`](./learning/what-is-employee-dto.md)
+- [Timestamp to LocalDateTime Mapping in DTOs](./learning/timestamp_to_localDateTime_note.md)
+- [Power of `fromModel`: Why It's More Than Just Copying](./learning/power_of_fromModel_note.md)
 
 ## Create EmployeeService
-- [ What Is `EmployeeService.scala`](./learning/what_is_employeeService.md)
+- [What Is `EmployeeService.scala`](./learning/what_is_employeeService.md)
