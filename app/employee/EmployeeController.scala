@@ -8,13 +8,13 @@ import scala.concurrent.ExecutionContext
 
 @Singleton
 class EmployeeController @Inject()(
-  repo: EmployeeRepository,
-  cc: ControllerComponents
+  cc: ControllerComponents,
+  employeeService: EmployeeService
 )(implicit ec: ExecutionContext) extends AbstractController(cc) {
 
   def getAllEmployees = Action.async { implicit request =>
-    repo.findAll().map { people =>
-      Ok(Json.toJson(people))
+    employeeService.getAllEmployees().map { employees =>
+      Ok(Json.toJson(employees))
     }
   }
 
