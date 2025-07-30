@@ -1,1 +1,4 @@
-GET     /       controllers.HomeController.index
+GET     /                   controllers.HomeController.index
+
+# Employees
+GET     /employees          employee.EmployeeController.getAllEmployees
