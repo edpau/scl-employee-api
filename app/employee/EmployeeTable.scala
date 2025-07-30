@@ -1,6 +1,7 @@
 package employee
 import slick.jdbc.MySQLProfile.api._
-import java.time.LocalDateTime
+
+import java.sql.Timestamp
 
 class Employees(tag: Tag) extends Table[Employee](tag, "employees") {
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
@@ -15,9 +16,9 @@ class Employees(tag: Tag) extends Table[Employee](tag, "employees") {
 
   def address = column[String]("address")
 
-  def createdAt = column[Option[LocalDateTime]]("created_at")
+  def createdAt = column[Option[Timestamp]]("created_at")
 
-  def updatedAt = column[Option[LocalDateTime]]("updated_at")
+  def updatedAt = column[Option[Timestamp]]("updated_at")
 
   def * = (
     id.?,
@@ -28,7 +29,7 @@ class Employees(tag: Tag) extends Table[Employee](tag, "employees") {
     address,
     createdAt,
     updatedAt
-  ) <> (Employee.tupled, Employee.unapply)
+  ) <> ((Employee.apply _).tupled, Employee.unapply)
 }
 
 object EmployeeTable {
