@@ -59,6 +59,7 @@ APPLICATION_SECRET="mysupersecret" sbt run
 ## Evolutions
 -- Evolution 1: Create `employees` table
 Summary: [Evolutions – What I Explored So Far](./learning/evolutions.md)
+- [Why I Use DB-Managed Timestamps (`createdAt` / `updatedAt`)](./learning/db_managed_timestamps_note.md)
 
 ## Create Employee Model
 
@@ -149,7 +150,8 @@ object Employee {
 - [Understanding `ApiError` in Scala Play Framework](./learning/understanding_apiError_note.md)
 
 ## Create EmployeeValidator
+- [What Is `Validator.scala`](./learning/validator_note.md)
 
-
-## create an `Employee` via POST `/employees
+## Create an `Employee` via POST `/employees
+- [Understanding the `def create` Insert Method in Slick](./learning/slick_insert_create_method.md)
 - [Debug Note: SQLIntegrityConstraintViolationException on created_at](./learning/employee_create_timestamp_debug_note.md)
