@@ -147,3 +147,9 @@ object Employee {
 
 ## Create utils/ ApiError
 - [Understanding `ApiError` in Scala Play Framework](./learning/understanding_apiError_note.md)
+
+## Create EmployeeValidator
+
+
+## create an `Employee` via POST `/employees
+- [Debug Note: SQLIntegrityConstraintViolationException on created_at](./learning/employee_create_timestamp_debug_note.md)
