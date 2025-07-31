@@ -20,6 +20,11 @@ class Employees(tag: Tag) extends Table[Employee](tag, "employees") {
 
   def updatedAt = column[Option[Timestamp]]("updated_at")
 
+  def insertProjection = (firstName, lastName, email, mobileNumber, address) <> (
+    InsertEmployee.tupled,
+    InsertEmployee.unapply
+  )
+
   def * = (
     id.?,
     firstName,

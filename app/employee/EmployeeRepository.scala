@@ -20,4 +20,31 @@ class EmployeeRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(imp
   def findById(id: Int): Future[Option[Employee]] = {
     db.run(employees.filter(_.id === id).result.headOption)
   }
+
+//  def create(employee: Employee): Future[Employee] = {
+//    val insertQuery = employees returning employees.map(_.id) into ((employee, id) => employee.copy(id = Some(id)))
+//    db.run(insertQuery += employee)
+//  }
+
+  def create(insertEmp: InsertEmployee): Future[Employee] = {
+    val insertQuery = employees
+      .map(e => (e.firstName, e.lastName, e.email, e.mobileNumber, e.address))
+      .returning(employees.map(_.id))
+      .into { case ((firstName, lastName, email, mobileNumber, address), id) =>
+        Employee(
+          id = Some(id),
+          firstName = firstName,
+          lastName = lastName,
+          email = email,
+          mobileNumber = mobileNumber,
+          address = address,
+          createdAt = None, // Let DB fill this
+          updatedAt = None
+        )
+      }
+
+    db.run(insertQuery += (insertEmp.firstName, insertEmp.lastName, insertEmp.email, insertEmp.mobileNumber, insertEmp.address))
+  }
+
+
 }

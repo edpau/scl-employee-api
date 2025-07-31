@@ -31,3 +31,11 @@ object Employee {
 
   implicit val format: OFormat[Employee] = Json.format[Employee]
 }
+
+case class InsertEmployee(
+  firstName: String,
+  lastName: String,
+  email: String,
+  mobileNumber: Option[String],
+  address: String
+)
