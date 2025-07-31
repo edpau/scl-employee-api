@@ -22,6 +22,14 @@ case class CreateEmployeeDto(
   address: String
 )
 
+case class UpdateEmployeeDto(
+  firstName: Option[String],
+  lastName: Option[String],
+  email: Option[String],
+  mobileNumber: Option[String],
+  address: Option[String]
+)
+
 object EmployeeResponse {
   implicit val format: OFormat[EmployeeResponse] = Json.format[EmployeeResponse]
 
@@ -32,4 +40,8 @@ object EmployeeResponse {
 
 object CreateEmployeeDto {
   implicit val reads: Reads[CreateEmployeeDto] = Json.reads[CreateEmployeeDto]
+}
+
+object UpdateEmployeeDto {
+  implicit val reads: Reads[UpdateEmployeeDto] = Json.reads[UpdateEmployeeDto]
 }

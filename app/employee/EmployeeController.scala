@@ -41,4 +41,15 @@ class EmployeeController @Inject()(
     }
   }
 
+  def updateById(id: Int): Action[JsValue] = Action.async(parse.json) { request =>
+    request.body.validate[UpdateEmployeeDto].fold(
+      errors => Future.successful(ApiError.InvalidJson(JsError(errors)).toResult),
+      dto => employeeService.updateEmployeeById(id, dto).map {
+        case Right(response) => Ok(Json.toJson(response))
+        case Left(error) => error.toResult
+      }
+    )
+
+  }
+
 }
