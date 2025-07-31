@@ -143,3 +143,7 @@ object Employee {
 
 ## Create EmployeeService
 - [What Is `EmployeeService.scala`](./learning/what_is_employeeService.md)
+- getAllEmployees()
+
+## Create utils/ ApiError
+- [Understanding `ApiError` in Scala Play Framework](./learning/understanding_apiError_note.md)
