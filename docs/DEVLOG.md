@@ -155,3 +155,6 @@ object Employee {
 ## Create an `Employee` via POST `/employees
 - [Understanding the `def create` Insert Method in Slick](./learning/slick_insert_create_method.md)
 - [Debug Note: SQLIntegrityConstraintViolationException on created_at](./learning/employee_create_timestamp_debug_note.md)
+
+## Contract
+- 
