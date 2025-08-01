@@ -29,7 +29,7 @@ class Contracts(tag: Tag) extends Table[Contract](tag, "contracts") {
     "fk_employee",
     employeeId,
     TableQuery[Employees]
-  )(_.id, onDelete = ForeignKeyAction.SetNull)
+  )(_.id, onDelete = ForeignKeyAction.Cascade)
 
   def * = (
     id.?,
