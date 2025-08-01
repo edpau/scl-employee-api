@@ -5,3 +5,4 @@ GET     /employees          employee.EmployeeController.getAllEmployees
 GET     /employees/:id      employee.EmployeeController.getEmployeeById(id: Int)
 POST    /employees          employee.EmployeeController.create
 PATCH   /employees/:id      employee.EmployeeController.updateById(id: Int)
+DELETE  /employees/:id      employee.EmployeeController.deleteById(id: Int)
