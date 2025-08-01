@@ -1,12 +1,12 @@
 # --- !Ups
 CREATE TABLE contracts (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    employee_id: INT NOT NULL,
-    contract_type: VARCHAR(50) NOT NULL,
-    employment_type: VARCHAR(50) NOT NULL,
-    start_date: DATE NOT NULL,
-    end_date: DATE,
-    hours_per_week: INT NOT NULL,
+    employee_id INT NOT NULL,
+    contract_type VARCHAR(50) NOT NULL,
+    employment_type VARCHAR(50) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    hours_per_week INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
