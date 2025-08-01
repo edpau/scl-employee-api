@@ -157,4 +157,5 @@ object Employee {
 - [Debug Note: SQLIntegrityConstraintViolationException on created_at](./learning/employee_create_timestamp_debug_note.md)
 
 ## Contract
-- 
+- [Contract Rules – Employment Domain](./learning/contract-rules.md)
+- [My Decision: From `SetNull` to `Cascade`, and Later to Archiving (Soft Delete)](./learning/contract-deletion-strategy.md)

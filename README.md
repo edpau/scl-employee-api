@@ -21,3 +21,6 @@ In production systems, `Long` (`BIGINT`) is typically used to support very large
 This decision was intentional to keep the code lightweight while focusing on architecture and clean layering.
 
 ---
+
+## 🛠️ Post-MVP Improvements (Planned)
+- [ ] Implement archiving (soft delete) for employees instead of hard deletion
