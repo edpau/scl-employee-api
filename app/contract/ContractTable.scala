@@ -6,7 +6,6 @@ import java.sql.Timestamp
 import java.time.LocalDate
 
 class Contracts(tag: Tag) extends Table[Contract](tag, "contracts") {
-
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
 
   def employeeId = column[Int]("employee_id")
@@ -30,6 +29,18 @@ class Contracts(tag: Tag) extends Table[Contract](tag, "contracts") {
     employeeId,
     TableQuery[Employees]
   )(_.id, onDelete = ForeignKeyAction.Cascade)
+
+  def insertProjection = (
+    employeeId,
+    contractType,
+    employmentType,
+    startDate,
+    endDate,
+    hoursPerWeek
+  ) <> (
+    (InsertContract.apply _).tupled,
+    InsertContract.unapply
+  )
 
   def * = (
     id.?,
