@@ -1,4 +1,5 @@
 ## Resource
+- [Slick 3.0.0 manual](https://scala-slick.org/doc/3.0.0/index.html)
 - [play-scala-slick-example](https://github.com/playframework/play-samples/tree/3.0.x/play-scala-slick-example)
 - [Rock the JVM - Slick Tutorial with Scala](https://www.youtube.com/watch?v=Uwqf_8nwYN4&list=PLmtsMNDRU0BxIFCdPgm77Dx5Ll9SQ76pR)
 - [Introduction to Slick](https://www.baeldung.com/scala/slick-intro#:~:text=Slick%20is%20a%20Functional%20Relational,SQL%2C%20thus%20providing%20typesafe%20queries.)
