@@ -10,11 +10,16 @@ import scala.concurrent.{ExecutionContext, Future}
 @Singleton
 class ContractRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
   private val dbConfig = dbConfigProvider.get[JdbcProfile]
+
   import dbConfig._
   import ContractTable.contracts
 
   def findAll(): Future[Seq[Contract]] = {
     db.run(contracts.result)
+  }
+
+  def findById(id: Int): Future[Option[Contract]] = {
+    db.run(contracts.filter(_.id === id).result.headOption)
   }
 
   def findByEmployeeId(employeeId: Int): Future[Seq[Contract]] = {

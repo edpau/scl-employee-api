@@ -8,5 +8,6 @@ PATCH   /employees/:id      employee.EmployeeController.updateById(id: Int)
 DELETE  /employees/:id      employee.EmployeeController.deleteById(id: Int)
 
 # Contract
-GET     /contracts            contract.ContractController.getAllContracts
+GET     /contracts           contract.ContractController.getAllContracts
+GET     /contracts/:id       contract.ContractController.getContractById(id: Int)
 POST    /contracts           contract.ContractController.create
