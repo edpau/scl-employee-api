@@ -1,7 +1,5 @@
 package employee
 
-import com.google.protobuf.Timestamp
-
 import javax.inject.{Inject, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 import utils.ApiError
