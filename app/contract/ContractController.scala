@@ -13,6 +13,12 @@ class ContractController @Inject()(
   contractService: ContractService
 )(implicit ec: ExecutionContext) extends AbstractController(cc) {
 
+  def getAllContracts: Action[AnyContent] = Action.async { implicit request =>
+    contractService.getAllContracts().map { contracts =>
+      Ok(Json.toJson(contracts))
+    }
+  }
+
   def create: Action[JsValue] = Action.async(parse.json) { request =>
     request.body.validate[CreateContractDto] match {
 

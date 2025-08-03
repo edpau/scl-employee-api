@@ -13,6 +13,10 @@ class ContractRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(imp
   import dbConfig._
   import ContractTable.contracts
 
+  def findAll(): Future[Seq[Contract]] = {
+    db.run(contracts.result)
+  }
+
   def findByEmployeeId(employeeId: Int): Future[Seq[Contract]] = {
     db.run(
       contracts
