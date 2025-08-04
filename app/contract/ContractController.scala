@@ -26,6 +26,13 @@ class ContractController @Inject()(
     }
   }
 
+  def getContractsByEmployeeId(employeeId: Int): Action[AnyContent] = Action.async {
+    contractService.getContractsByEmployeeId(employeeId).map {
+      case Right(contracts) => Ok(Json.toJson(contracts))
+      case Left(error) => error.toResult
+    }
+  }
+
   def create: Action[JsValue] = Action.async(parse.json) { request =>
     request.body.validate[CreateContractDto] match {
 

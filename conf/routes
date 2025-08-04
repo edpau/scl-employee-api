@@ -1,13 +1,14 @@
 GET     /                   controllers.HomeController.index
 
 # Employees
-GET     /employees          employee.EmployeeController.getAllEmployees
-GET     /employees/:id      employee.EmployeeController.getEmployeeById(id: Int)
-POST    /employees          employee.EmployeeController.create
-PATCH   /employees/:id      employee.EmployeeController.updateById(id: Int)
-DELETE  /employees/:id      employee.EmployeeController.deleteById(id: Int)
+GET     /employees                  employee.EmployeeController.getAllEmployees
+GET     /employees/:id              employee.EmployeeController.getEmployeeById(id: Int)
+POST    /employees                  employee.EmployeeController.create
+PATCH   /employees/:id              employee.EmployeeController.updateById(id: Int)
+DELETE  /employees/:id              employee.EmployeeController.deleteById(id: Int)
 
 # Contract
-GET     /contracts           contract.ContractController.getAllContracts
-GET     /contracts/:id       contract.ContractController.getContractById(id: Int)
-POST    /contracts           contract.ContractController.create
+GET     /contracts                  contract.ContractController.getAllContracts
+GET     /contracts/:id              contract.ContractController.getContractById(id: Int)
+GET     /employees/:id/contracts    contract.ContractController.getContractsByEmployeeId(id: Int)
+POST    /contracts                  contract.ContractController.create
