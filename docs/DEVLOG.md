@@ -1,3 +1,4 @@
+# Devlog
 ## Resource
 - [Slick 3.0.0 manual](https://scala-slick.org/doc/3.0.0/index.html)
 - [play-scala-slick-example](https://github.com/playframework/play-samples/tree/3.0.x/play-scala-slick-example)
@@ -7,13 +8,16 @@
 
 -[Backend Domain Layer: Step-by-Step Build Order](./learning/backend-domain-build-order.md)
 
+---
 ## Converting Between LocalDate and SQL Date
 - [Converting Between LocalDate and SQL Date](https://www.baeldung.com/java-convert-localdate-sql-date)
 
+---
 ## Initialized Backend Project
 - [Start project with starter template](https://github.com/nology-tech/getting-started-guides/tree/main/play/starter-template)
 - 📘 Full writeup: [Starter Template – Folder & File Guide](./learning/starter-template-notes.md)
 
+---
 ## Database Configuration
 - Renamed default playdb to scl_employee_db
 - Created local MySQL database with modern UTF-8 support:
@@ -32,15 +36,14 @@ If everything’s working
 {"message":"Hello, Play + Slick + MySQL (Scala 2.13)!"}
 ```
 
-[//]: # (TODO)
-curl for POST, PATCH, or DELETE
-
+---
 ## ✅ Git Ignore Setup
 
 - Cleaned up `.vscode/`, `.metals/`, and `.bloop/`
 - Updated `.gitignore` to reflect IntelliJ + Scala workflow
 - Ignoring unnecessary editor-specific and build artifacts
 
+---
 ## 🔐 Application Secret (Play Security)
 Instead of hardcoding secrets (like play.http.secret.key) directly in application.conf, I followed Play’s recommendation to inject secrets through environment variables.
 This improves:
@@ -57,11 +60,13 @@ APPLICATION_SECRET="mysupersecret" sbt run
 ```
 📘 Full writeup: [Managing the Application Secret with Environment Variables](./learning/secrets-env-setup.md)
 
+--- 
 ## Evolutions
 -- Evolution 1: Create `employees` table
 Summary: [Evolutions – What I Explored So Far](./learning/evolutions.md)
 - [Why I Use DB-Managed Timestamps (`createdAt` / `updatedAt`)](./learning/db_managed_timestamps_note.md)
 
+---
 ## Create Employee Model
 
 - [What Is Employee.scala (Domain Model)](./learning/what-is-employee-model.md)
@@ -157,10 +162,14 @@ object Employee {
 - [Understanding the `def create` Insert Method in Slick](./learning/slick_insert_create_method.md)
 - [Debug Note: SQLIntegrityConstraintViolationException on created_at](./learning/employee_create_timestamp_debug_note.md)
 
+---
 ## Contract
 - [Contract Rules – Employment Domain](./learning/contract-rules.md)
 - [My Decision: From `SetNull` to `Cascade`, and Later to Archiving (Soft Delete)](./learning/contract-deletion-strategy.md)
 - [Patch Update Notes – Contract vs Employee](./learning/patch-update-notes.md)
 
+---
 ## DataSeeder and Startup
 - [Learning Note: Understanding `DataSeeder` and `Startup` in Play Framework](./learning/data-seeder-startup-note.md)
+
+---
