@@ -12,4 +12,14 @@ object ContractValidator extends Validator {
       isDateRangeValid(dto.startDate, dto.endDate)
     ).flatten.toMap
   }
+
+  def validatePatch(dto: UpdateContractDto): Map[String, String] = {
+    List(
+      isPositiveIfDefined("employeeId", dto.employeeId),
+      isNonBlankIfDefined("contractType", dto.contractType),
+      isNonBlankIfDefined("employmentType", dto.employmentType),
+      isPositiveIfDefined("hoursPerWeek", dto.hoursPerWeek),
+      isDateRangeValidIfDefined(dto.startDate, dto.endDate)
+    ).flatten.toMap
+  }
 }

@@ -53,4 +53,26 @@ class ContractRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(imp
     db.run(insertQuery += data)
   }
 
+  def update(contract: Contract): Future[Contract] = {
+    val query = contracts.filter(_.id === contract.id.get)
+      .map(c => (
+        c.employeeId,
+        c.contractType,
+        c.employmentType,
+        c.startDate,
+        c.endDate,
+        c.hoursPerWeek
+      ))
+      .update((
+        contract.employeeId,
+        contract.contractType,
+        contract.employmentType,
+        contract.startDate,
+        contract.endDate,
+        contract.hoursPerWeek
+        ))
+
+    db.run(query).map(_ => contract)
+  }
+
 }
