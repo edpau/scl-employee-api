@@ -160,3 +160,4 @@ object Employee {
 ## Contract
 - [Contract Rules – Employment Domain](./learning/contract-rules.md)
 - [My Decision: From `SetNull` to `Cascade`, and Later to Archiving (Soft Delete)](./learning/contract-deletion-strategy.md)
+- [Patch Update Notes – Contract vs Employee](./learning/patch-update-notes.md)
