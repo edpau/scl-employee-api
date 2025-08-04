@@ -75,4 +75,8 @@ class ContractRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(imp
     db.run(query).map(_ => contract)
   }
 
+  def delete(id: Int): Future[Int] = {
+    db.run(contracts.filter(_.id === id).delete)
+  }
+
 }

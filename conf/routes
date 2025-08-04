@@ -13,3 +13,4 @@ GET     /contracts/:id              contract.ContractController.getContractById(
 GET     /employees/:id/contracts    contract.ContractController.getContractsByEmployeeId(id: Int)
 POST    /contracts                  contract.ContractController.create
 PATCH   /contracts/:id              contract.ContractController.updateById(id: Int)
+DELETE  /contracts/:id              contract.ContractController.deleteById(id: Int)

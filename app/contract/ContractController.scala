@@ -57,4 +57,11 @@ class ContractController @Inject()(
     )
   }
 
+  def deleteById(id: Int): Action[AnyContent] = Action.async {
+    contractService.deleteContractById(id).map {
+      case Right(_) => NoContent
+      case Left(error) => error.toResult
+    }
+  }
+
 }
