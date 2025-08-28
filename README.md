@@ -189,7 +189,10 @@ See full log → [`docs/DEVLOG.md`](docs/DEVLOG.md)
 
 ## 🌱 Future Improvements
 
+- [ ] Enum on Contract type 
 - [ ] Soft delete (archiving) for employees
+- [ ] Add `fullName` field to `Employee` API response
+- [ ] Role-based access control (admin vs. HR vs. viewer)
 
 ---
 
