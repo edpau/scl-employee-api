@@ -173,3 +173,6 @@ object Employee {
 - [Learning Note: Understanding `DataSeeder` and `Startup` in Play Framework](./learning/data-seeder-startup-note.md)
 
 ---
+
+## return 409 DuplicateEmail with field error on unique email violation
+- [Learning Log: return 409 DuplicateEmail](./learning/log_return_409_DuplicateEmail.md)

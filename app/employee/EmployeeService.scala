@@ -4,6 +4,8 @@ import javax.inject.{Inject, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 import utils.ApiError
 
+import scala.annotation.tailrec
+
 @Singleton
 class EmployeeService @Inject()(employeeRepository: EmployeeRepository)(implicit ec: ExecutionContext) {
 
@@ -32,7 +34,13 @@ class EmployeeService @Inject()(employeeRepository: EmployeeRepository)(implicit
         mobileNumber = data.mobileNumber.map(_.trim).filter(_.nonEmpty),
         address = data.address.trim
       )
-      employeeRepository.create(insert).map(saved => Right(EmployeeResponse.fromModel(saved)))
+      employeeRepository.create(insert)
+        .map(saved => Right(EmployeeResponse.fromModel(saved)))
+        .recover {
+          case ex if isMySqlDuplicateEmail(ex) =>
+            Left(ApiError.DuplicateEmail)
+          case _ => Left(ApiError.InternalServerError("Unexpected error"))
+        }
     }
   }
 
@@ -71,5 +79,24 @@ class EmployeeService @Inject()(employeeRepository: EmployeeRepository)(implicit
       else Left(ApiError.NotFound(s"Employee with id $id not found"))
     }
   }
+
+  // --- private helpers ---
+  // Walk the cause chain because Slick wraps exceptions
+  @tailrec
+  private def unwrapSql(t: Throwable): Option[java.sql.SQLException] = t match {
+    case sql: java.sql.SQLException => Some(sql)
+    case null => None
+    case other => unwrapSql(other.getCause)
+  }
+
+  private val EmailUniqueConstraintName = "uq_employees_email"
+
+  private def isMySqlDuplicateEmail(t: Throwable): Boolean =
+    unwrapSql(t).exists { sql =>
+      val vendor = sql.getErrorCode
+      val state = sql.getSQLState
+      val msg = Option(sql.getMessage).getOrElse("")
+      (vendor == 1062 || state == "23000") && msg.contains(EmailUniqueConstraintName)
+    }
 
 }

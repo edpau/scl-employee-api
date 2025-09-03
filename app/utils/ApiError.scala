@@ -41,4 +41,17 @@ object ApiError {
       ))
     }
   }
+
+  case object DuplicateEmail extends ApiError {
+    val message: String = "Email already in use."
+
+    def toResult: Result =
+      Results.Conflict(
+        Json.obj(
+          "error" -> message,
+          "validation_errors" -> Json.obj("email" -> "Already in use")
+        )
+      )
+  }
+
 }
