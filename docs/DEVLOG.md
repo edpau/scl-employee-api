@@ -176,3 +176,4 @@ object Employee {
 
 ## return 409 DuplicateEmail with field error on unique email violation
 - [Learning Log: return 409 DuplicateEmail](./learning/log_return_409_DuplicateEmail.md)
+- [Learning Note: return 409 DuplicateEmail](./learning/duplicate_email_409.md)
