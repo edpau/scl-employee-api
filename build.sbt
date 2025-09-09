@@ -13,5 +13,9 @@ lazy val root = (project in file("."))
       "mysql" % "mysql-connector-java" % "8.0.33",
       "org.scalatest" %% "scalatest" % "3.2.18" % Test,
       "org.scalatestplus" %% "selenium-4-21" % "3.2.19.0" % Test
-    )
+    ),
+
+    // --- Test JVM settings ---
+    Test / fork := true,
+    Test / javaOptions += "-Dheadless=true"
   )
